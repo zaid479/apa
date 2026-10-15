@@ -1,0 +1,1373 @@
+!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KickOff Jerseys - Toko Jersey Sepak Bola Original & Custom</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#e63946',
+                            dark: '#0d1117',
+                            card: '#161b22',
+                            green: '#2ec4b6',
+                            gold: '#ffb703',
+                            blue: '#1d3557'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        jersey: ['Teko', 'sans-serif'],
+                        display: ['Bebas Neue', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d1117;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #21262d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #30363d;
+        }
+        
+        /* Jersey Custom Font Styles */
+        .font-style-modern {
+            font-family: 'Teko', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .font-style-classic {
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 4px;
+        }
+        .font-style-sport {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="bg-[#0d1117] text-gray-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-red selection:text-white">
+
+    <!-- Announcement Bar -->
+    <div class="bg-gradient-to-r from-brand-red via-red-600 to-brand-blue text-white text-xs md:text-sm py-2 px-4 text-center font-medium shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="hidden md:inline"><i class="fa-solid fa-truck-fast mr-2"></i>Gratis Ongkir Seluruh Indonesia min. order Rp 500.000</span>
+            <span class="mx-auto md:mx-0 font-bold tracking-wide">🔥 PROMO SPESIAL: Gunakan Kode <span class="bg-black/30 px-2 py-0.5 rounded font-mono text-yellow-300">KICKOFF10</span> Diskon 10%!</span>
+            <span class="hidden md:inline"><i class="fa-solid fa-shield-halved mr-1"></i> 100% Guaranteed Quality</span>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-[#0d1117]/90 backdrop-blur-md border-b border-gray-800">
+        <div class="container mx-auto px-4 py-3.5 flex items-center justify-between gap-4">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-red to-orange-500 flex items-center justify-center text-white shadow-lg shadow-red-900/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-shirt text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-wider bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent font-display">KICKOFF</span>
+                    <span class="text-xs block tracking-widest text-brand-red font-bold -mt-2">JERSEYS STORE</span>
+                </div>
+            </a>
+
+            <!-- Desktop Search Bar -->
+            <div class="hidden md:flex flex-1 max-w-md relative">
+                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Cari jersey klub, timnas, atau player..." 
+                    class="w-full bg-[#161b22] border border-gray-700 rounded-full py-2 pl-10 pr-4 text-sm text-gray-200 placeholder-gray-400 focus:outline-none focus:border-brand-red transition-all shadow-inner">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-gray-400"></i>
+            </div>
+
+            <!-- Actions Right -->
+            <div class="flex items-center gap-3 md:gap-5">
+                <!-- Search Button Mobile -->
+                <button onclick="toggleMobileSearch()" class="md:hidden p-2 text-gray-300 hover:text-white rounded-lg">
+                    <i class="fa-solid fa-magnifying-glass text-xl"></i>
+                </button>
+
+                <!-- Size Guide Trigger -->
+                <button onclick="openSizeModal()" class="hidden sm:flex items-center gap-1.5 text-xs text-gray-300 hover:text-brand-gold bg-gray-800/80 px-3 py-1.5 rounded-lg border border-gray-700 hover:border-brand-gold transition">
+                    <i class="fa-solid fa-ruler-horizontal"></i>
+                    <span>Panduan Ukuran</span>
+                </button>
+
+                <!-- Wishlist Icon -->
+                <button onclick="openWishlistToast()" class="relative p-2 text-gray-300 hover:text-brand-red transition">
+                    <i class="fa-regular fa-heart text-xl"></i>
+                    <span id="wishlistBadge" class="absolute -top-1 -right-1 bg-brand-red text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+
+                <!-- Cart Button -->
+                <button onclick="toggleCartDrawer(true)" class="relative bg-brand-red hover:bg-red-600 text-white px-4 py-2 rounded-xl flex items-center gap-2 font-semibold shadow-lg shadow-red-900/40 hover:shadow-red-800/60 transition active:scale-95">
+                    <i class="fa-solid fa-bag-shopping text-lg"></i>
+                    <span class="hidden sm:inline text-sm">Keranjang</span>
+                    <span id="cartCountBadge" class="bg-white text-brand-red text-xs font-extrabold px-2 py-0.5 rounded-full">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Search Drawer -->
+        <div id="mobileSearch" class="hidden px-4 pb-3 border-t border-gray-800 md:hidden pt-2">
+            <div class="relative">
+                <input type="text" id="mobileSearchInput" oninput="handleSearchMobile()" placeholder="Cari jersey favoritmu..." 
+                    class="w-full bg-[#161b22] border border-gray-700 rounded-lg py-2 pl-10 pr-4 text-sm text-gray-200 placeholder-gray-400 focus:outline-none focus:border-brand-red">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-gray-400"></i>
+            </div>
+        </div>
+
+        <!-- Category Nav -->
+        <nav class="bg-[#161b22] border-t border-gray-800/80 overflow-x-auto no-scrollbar">
+            <div class="container mx-auto px-4 flex items-center space-x-1 md:space-x-4 py-2 text-sm whitespace-nowrap">
+                <button onclick="filterCategory('all')" class="cat-btn active font-medium px-3.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition">
+                    <i class="fa-solid fa-border-all mr-1.5 text-xs"></i>Semua Jersey
+                </button>
+                <button onclick="filterCategory('EPL')" class="cat-btn font-medium px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition">
+                    Premier League
+                </button>
+                <button onclick="filterCategory('La Liga')" class="cat-btn font-medium px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition">
+                    La Liga
+                </button>
+                <button onclick="filterCategory('Serie A')" class="cat-btn font-medium px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition">
+                    Serie A
+                </button>
+                <button onclick="filterCategory('Timnas')" class="cat-btn font-medium px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition">
+                    🇮🇩 Timnas / Negara
+                </button>
+                <button onclick="filterCategory('Retro')" class="cat-btn font-medium px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition">
+                    ✨ Classic & Retro
+                </button>
+                <button onclick="scrollToCustomizer()" class="font-semibold px-3.5 py-1.5 rounded-lg text-yellow-400 hover:bg-yellow-400/10 border border-yellow-400/30 transition ml-auto">
+                    <i class="fa-solid fa-wand-magic-sparkles mr-1.5"></i>Custom Sablon
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1">
+
+        <!-- Hero Banner Section -->
+        <section class="relative overflow-hidden bg-gradient-to-b from-[#161b22] to-[#0d1117] py-8 md:py-14 border-b border-gray-800">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#e63946_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="md:col-span-7 space-y-5 text-center md:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/30 text-brand-red text-xs font-bold tracking-wider uppercase">
+                            <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
+                            Koleksi Musim Terbaru 2025/2026
+                        </div>
+                        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                            PAKAI JERSEY <br class="hidden sm:inline"/>
+                            <span class="bg-gradient-to-r from-brand-red via-red-400 to-brand-gold bg-clip-text text-transparent font-display text-5xl md:text-7xl">
+                                KEBANGGAAN TIMMU
+                            </span>
+                        </h1>
+                        <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto md:mx-0 leading-relaxed">
+                            Koleksi jersey original, versi Player Issue, Fans Version, hingga edisi Vintage Classic. BISA TAMBAH NAMA & NOMOR PUNGGUNG (SABLON ORI)!
+                        </p>
+                        
+                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+                            <a href="#catalog" class="bg-brand-red hover:bg-red-600 text-white font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-red-900/40 transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                                <span>Lihat Katalog</span>
+                                <i class="fa-solid fa-arrow-right text-sm"></i>
+                            </a>
+                            <button onclick="scrollToCustomizer()" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 font-semibold px-6 py-3.5 rounded-xl transition flex items-center gap-2">
+                                <i class="fa-solid fa-shirt text-brand-gold"></i>
+                                <span>Coba Custom Sablon</span>
+                            </button>
+                        </div>
+
+                        <!-- Highlights Badges -->
+                        <div class="pt-6 grid grid-cols-3 gap-2 border-t border-gray-800 max-w-md mx-auto md:mx-0">
+                            <div>
+                                <p class="text-xl md:text-2xl font-bold text-white font-display">100% HIGH QUAL</p>
+                                <p class="text-xs text-gray-400">Bahan DryFit Import</p>
+                            </div>
+                            <div>
+                                <p class="text-xl md:text-2xl font-bold text-white font-display">SABLON POLYFLEX</p>
+                                <p class="text-xs text-gray-400">Presisi & Tahan Lama</p>
+                            </div>
+                            <div>
+                                <p class="text-xl md:text-2xl font-bold text-white font-display">EXPRESS SHIP</p>
+                                <p class="text-xs text-gray-400">Kirim Hari Ini</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual Banner Card -->
+                    <div class="md:col-span-5 relative">
+                        <div class="relative mx-auto max-w-sm rounded-3xl bg-gradient-to-tr from-brand-red/30 via-brand-card to-blue-900/30 p-1 border border-gray-700 shadow-2xl">
+                            <div class="bg-[#161b22] rounded-[22px] p-5 overflow-hidden relative">
+                                <div class="absolute top-3 right-3 bg-brand-gold text-black font-extrabold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+                                    BEST SELLER
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?w=600&auto=format&fit=crop&q=80" 
+                                     alt="Featured Jersey" 
+                                     class="w-full h-64 object-cover rounded-xl shadow-md mb-4 hover:scale-105 transition duration-500">
+                                
+                                <div class="space-y-1 text-left">
+                                    <span class="text-xs text-brand-red font-bold uppercase">Timnas Indonesia 2025</span>
+                                    <h3 class="text-lg font-bold text-white">Jersey Home Merah Garuda Ed. Special</h3>
+                                    <div class="flex items-center justify-between pt-2">
+                                        <div>
+                                            <span class="text-xs text-gray-400 line-through mr-1.5">Rp 450.000</span>
+                                            <span class="text-lg font-extrabold text-white">Rp 299.000</span>
+                                        </div>
+                                        <button onclick="quickAddHeroProduct()" class="bg-white text-black hover:bg-brand-gold font-bold px-3 py-1.5 rounded-lg text-xs transition">
+                                            + Beli
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Catalog Section -->
+        <section id="catalog" class="py-10 container mx-auto px-4">
+            
+            <!-- Section Header & Filter Controls -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-white flex items-center gap-2">
+                        <span>Katalog Jersey Terpopuler</span>
+                        <span id="productCountBadge" class="text-xs bg-gray-800 text-gray-300 font-mono px-2.5 py-1 rounded-full border border-gray-700">0 Jersey</span>
+                    </h2>
+                    <p class="text-xs md:text-sm text-gray-400">Pilih jersey tim kesayanganmu dengan kualitas terbaik</p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <!-- Filter Dropdown -->
+                    <div class="relative">
+                        <select id="leagueFilter" onchange="applyFilters()" class="bg-[#161b22] border border-gray-700 text-sm rounded-xl px-3 py-2 text-gray-200 focus:outline-none focus:border-brand-red cursor-pointer">
+                            <option value="all">Semua Kategori</option>
+                            <option value="EPL">Premier League</option>
+                            <option value="La Liga">La Liga</option>
+                            <option value="Serie A">Serie A</option>
+                            <option value="Timnas">Timnas / Negara</option>
+                            <option value="Retro">Classic / Retro</option>
+                        </select>
+                    </div>
+
+                    <!-- Sort Dropdown -->
+                    <div class="relative">
+                        <select id="sortBy" onchange="applyFilters()" class="bg-[#161b22] border border-gray-700 text-sm rounded-xl px-3 py-2 text-gray-200 focus:outline-none focus:border-brand-red cursor-pointer">
+                            <option value="default">Urutkan: Rekomendasi</option>
+                            <option value="price-low">Harga: Terendah - Tertinggi</option>
+                            <option value="price-high">Harga: Tertinggi - Terendah</option>
+                            <option value="rating">Rating Tertinggi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- Javascript will render products here -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="hidden text-center py-16">
+                <i class="fa-solid fa-shirt text-5xl text-gray-600 mb-3"></i>
+                <h3 class="text-lg font-bold text-gray-300">Jersey tidak ditemukan</h3>
+                <p class="text-sm text-gray-500">Coba ubah kata kunci pencarian atau filter kategori Anda.</p>
+                <button onclick="resetFilters()" class="mt-4 bg-gray-800 hover:bg-gray-700 text-white text-xs px-4 py-2 rounded-lg border border-gray-700">
+                    Reset Filter
+                </button>
+            </div>
+
+        </section>
+
+        <!-- Interactive Jersey Customizer Section (Sablon Nama & Nomor) -->
+        <section id="customizer" class="py-12 bg-gradient-to-b from-[#0d1117] via-[#161b22] to-[#0d1117] border-y border-gray-800 my-10">
+            <div class="container mx-auto px-4">
+                
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-brand-gold font-bold text-xs uppercase tracking-widest bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">
+                        ⚡ Fitur Custom Interactive
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">SABLON NAMA & NOMOR PUNGGUNG</h2>
+                    <p class="text-sm text-gray-400 mt-1">Coba cetak nama dan nomor punggung impianmu secara visual langsung di preview jersey!</p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
+                    
+                    <!-- Live Interactive Visual Jersey Canvas -->
+                    <div class="lg:col-span-6 flex justify-center">
+                        <div class="relative w-80 h-96 bg-[#0f141c] rounded-2xl border-2 border-gray-700 shadow-2xl p-4 flex flex-col items-center justify-center overflow-hidden group">
+                            
+                            <!-- Color Background Gradient dynamic -->
+                            <div id="jerseyBackBg" class="absolute inset-0 bg-gradient-to-b from-red-700 via-red-800 to-red-950 transition-colors duration-500"></div>
+
+                            <!-- Mock Collar & Sleeves outlines for jersey effect -->
+                            <div class="absolute top-0 w-28 h-8 bg-black/40 rounded-b-3xl border-b border-white/20"></div>
+                            
+                            <!-- Left Sleeve Patch -->
+                            <div id="patchDisplay" class="absolute left-3 top-10 w-8 h-8 bg-black/40 rounded-full flex items-center justify-center border border-white/20 text-[10px] font-bold text-white shadow">
+                                <i class="fa-solid fa-trophy text-yellow-400"></i>
+                            </div>
+
+                            <!-- Right Sleeve Patch -->
+                            <div class="absolute right-3 top-10 w-8 h-8 bg-black/40 rounded-full flex items-center justify-center border border-white/20 text-[9px] font-bold text-white shadow">
+                                RESPECT
+                            </div>
+
+                            <!-- Inner Custom Print Area -->
+                            <div class="relative z-10 flex flex-col items-center justify-center w-full px-4 text-center mt-6">
+                                
+                                <!-- Custom Name Display -->
+                                <div id="previewName" class="font-style-modern text-white text-3xl font-extrabold tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] break-all max-w-full">
+                                    GARUDA
+                                </div>
+
+                                <!-- Custom Number Display -->
+                                <div id="previewNumber" class="font-style-modern text-white text-8xl font-extrabold tracking-tighter leading-none my-1 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
+                                    7
+                                </div>
+
+                                <!-- League Logo Badge Preview at Bottom Number -->
+                                <div class="text-[10px] opacity-70 tracking-widest text-white uppercase font-bold mt-2">
+                                    AUTHENTIC PRINT
+                                </div>
+                            </div>
+
+                            <!-- Dynamic Jersey Color selector mini badges -->
+                            <div class="absolute bottom-3 left-3 right-3 flex justify-between items-center bg-black/60 backdrop-blur px-3 py-1.5 rounded-lg border border-white/10 text-xs">
+                                <span class="text-gray-300 text-[11px]">Warna Jersey:</span>
+                                <div class="flex gap-1.5">
+                                    <button onclick="changeJerseyBg('red')" class="w-4 h-4 rounded-full bg-red-600 border border-white"></button>
+                                    <button onclick="changeJerseyBg('blue')" class="w-4 h-4 rounded-full bg-blue-600 border border-white"></button>
+                                    <button onclick="changeJerseyBg('black')" class="w-4 h-4 rounded-full bg-gray-900 border border-white"></button>
+                                    <button onclick="changeJerseyBg('white')" class="w-4 h-4 rounded-full bg-white border border-black"></button>
+                                    <button onclick="changeJerseyBg('yellow')" class="w-4 h-4 rounded-full bg-yellow-400 border border-white"></button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Customization Inputs Form -->
+                    <div class="lg:col-span-6 bg-[#161b22] border border-gray-700 p-6 rounded-2xl shadow-xl space-y-4">
+                        
+                        <h3 class="text-xl font-bold text-white border-b border-gray-800 pb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-pen-to-square text-brand-red"></i>
+                            Atur Sablon Custom Anda
+                        </h3>
+
+                        <!-- Name Input -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">Nama Punggung (Maks 12 Karakter)</label>
+                            <input type="text" id="inputName" maxlength="12" value="GARUDA" oninput="updateCustomizer()" 
+                                class="w-full bg-[#0d1117] border border-gray-700 rounded-xl px-4 py-2.5 text-sm text-white uppercase focus:outline-none focus:border-brand-red font-mono">
+                        </div>
+
+                        <!-- Number Input -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">Nomor Punggung (0-99)</label>
+                            <input type="number" id="inputNumber" min="0" max="99" value="7" oninput="updateCustomizer()" 
+                                class="w-full bg-[#0d1117] border border-gray-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red font-mono">
+                        </div>
+
+                        <!-- Font Style Choice -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">Gaya Font Sablon</label>
+                            <select id="fontStyleSelect" onchange="updateCustomizer()" class="w-full bg-[#0d1117] border border-gray-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red">
+                                <option value="font-style-modern">Modern Sport (Official Cup Style)</option>
+                                <option value="font-style-classic">Classic Retro (Bebas Block)</option>
+                                <option value="font-style-sport">Bold Sans Minimalist</option>
+                            </select>
+                        </div>
+
+                        <!-- Font Color -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">Warna Tulisan Sablon</label>
+                            <div class="flex gap-3">
+                                <label class="flex items-center gap-1.5 text-xs text-gray-300 cursor-pointer">
+                                    <input type="radio" name="fontColor" value="text-white" checked onchange="updateCustomizer()" class="accent-brand-red"> White
+                                </label>
+                                <label class="flex items-center gap-1.5 text-xs text-gray-300 cursor-pointer">
+                                    <input type="radio" name="fontColor" value="text-black" onchange="updateCustomizer()" class="accent-brand-red"> Black
+                                </label>
+                                <label class="flex items-center gap-1.5 text-xs text-gray-300 cursor-pointer">
+                                    <input type="radio" name="fontColor" value="text-yellow-300" onchange="updateCustomizer()" class="accent-brand-red"> Gold / Yellow
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Patch Selection -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">Pilih Sleeve Patch Badge (+ Rp 25.000)</label>
+                            <select id="patchSelect" onchange="updateCustomizer()" class="w-full bg-[#0d1117] border border-gray-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red">
+                                <option value="none">Tanpa Patch Extra</option>
+                                <option value="ucl">UEFA Champions League Star Patch</option>
+                                <option value="epl">Premier League Lion Badge</option>
+                                <option value="wc">FIFA World Champions Badge</option>
+                            </select>
+                        </div>
+
+                        <!-- Custom Price Summary & Add to Cart -->
+                        <div class="pt-3 border-t border-gray-800 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-gray-400 block">Biaya Tambahan Sablon:</span>
+                                <span id="customSablonPrice" class="text-lg font-bold text-brand-gold">Rp 45.000</span>
+                            </div>
+                            <button onclick="addCustomJerseyToCart()" class="bg-brand-red hover:bg-red-600 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition flex items-center gap-2 shadow-lg shadow-red-900/30">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                <span>Pesan Custom Ini</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Testimonials & Trust Badge Section -->
+        <section class="py-12 container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+                <div class="bg-[#161b22] border border-gray-800 p-6 rounded-2xl">
+                    <div class="w-12 h-12 bg-red-500/10 text-brand-red rounded-xl flex items-center justify-center mx-auto mb-3 text-xl">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h4 class="font-bold text-white mb-1">Bahan DryFit Quality Premium</h4>
+                    <p class="text-xs text-gray-400">Adem, menyerap keringat dengan baik, serta nyaman dipakai olah raga maupun casual style.</p>
+                </div>
+
+                <div class="bg-[#161b22] border border-gray-800 p-6 rounded-2xl">
+                    <div class="w-12 h-12 bg-yellow-500/10 text-brand-gold rounded-xl flex items-center justify-center mx-auto mb-3 text-xl">
+                        <i class="fa-solid fa-print"></i>
+                    </div>
+                    <h4 class="font-bold text-white mb-1">Sablon Polyflex Presisi</h4>
+                    <p class="text-xs text-gray-400">Menggunakan teknologi cetak termal presisi tinggi, tahan cuci dan tidak mudah mengelupas.</p>
+                </div>
+
+                <div class="bg-[#161b22] border border-gray-800 p-6 rounded-2xl">
+                    <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h4 class="font-bold text-white mb-1">Pengiriman Cepat & Aman</h4>
+                    <p class="text-xs text-gray-400">Garansi pengembalian 100% jika produk rusak atau terjadi kesalahan ukuran/cetak sablon.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#161b22] border-t border-gray-800 text-gray-400 pt-12 pb-8 text-sm">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+            
+            <!-- Brand Info -->
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-brand-red flex items-center justify-center text-white font-bold">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white font-display">KICKOFF JERSEYS</span>
+                </div>
+                <p class="text-xs leading-relaxed text-gray-400">
+                    Pusat jersey sepak bola terlengkap, termurah, dan terpercaya di Indonesia. Melayani pembelian eceran & custom nama/nomor punggung.
+                </p>
+                <div class="flex gap-3 text-gray-300 pt-1">
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-brand-red flex items-center justify-center transition"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-brand-red flex items-center justify-center transition"><i class="fa-brands fa-tiktok text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-brand-red flex items-center justify-center transition"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h5 class="text-white font-bold mb-3">Kategori Jersey</h5>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#catalog" onclick="filterCategory('EPL')" class="hover:text-brand-red transition">Jersey Premier League</a></li>
+                    <li><a href="#catalog" onclick="filterCategory('La Liga')" class="hover:text-brand-red transition">Jersey La Liga Spanyol</a></li>
+                    <li><a href="#catalog" onclick="filterCategory('Serie A')" class="hover:text-brand-red transition">Jersey Serie A Italia</a></li>
+                    <li><a href="#catalog" onclick="filterCategory('Timnas')" class="hover:text-brand-red transition">Jersey Timnas Indonesia & World Cup</a></li>
+                    <li><a href="#catalog" onclick="filterCategory('Retro')" class="hover:text-brand-red transition">Jersey Classic Retro 90s</a></li>
+                </ul>
+            </div>
+
+            <!-- Customer Service -->
+            <div>
+                <h5 class="text-white font-bold mb-3">Bantuan & Layanan</h5>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="javascript:void(0)" onclick="openSizeModal()" class="hover:text-brand-red transition">Panduan Ukuran (Size Chart)</a></li>
+                    <li><a href="javascript:void(0)" onclick="scrollToCustomizer()" class="hover:text-brand-red transition">Cara Pesan Custom Sablon</a></li>
+                    <li><a href="javascript:void(0)" class="hover:text-brand-red transition">Kebijakan Garansi & Retur</a></li>
+                    <li><a href="javascript:void(0)" class="hover:text-brand-red transition">Status Pengiriman Order</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter & Payment -->
+            <div class="space-y-3">
+                <h5 class="text-white font-bold">Metode Pembayaran</h5>
+                <div class="flex flex-wrap gap-2 text-xs font-semibold text-gray-300">
+                    <span class="bg-gray-800 px-2.5 py-1 rounded border border-gray-700">QRIS</span>
+                    <span class="bg-gray-800 px-2.5 py-1 rounded border border-gray-700">GoPay</span>
+                    <span class="bg-gray-800 px-2.5 py-1 rounded border border-gray-700">BCA Transfer</span>
+                    <span class="bg-gray-800 px-2.5 py-1 rounded border border-gray-700">Mandiri</span>
+                    <span class="bg-gray-800 px-2.5 py-1 rounded border border-gray-700">VISA / MC</span>
+                </div>
+                <div class="pt-2">
+                    <p class="text-xs text-gray-400 mb-1.5">Dapatkan Info Promo Jersey:</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Email kamu..." class="bg-[#0d1117] border border-gray-700 rounded-l-lg px-3 py-1.5 text-xs text-white focus:outline-none w-full">
+                        <button onclick="subscribeNewsletter()" class="bg-brand-red hover:bg-red-600 text-white px-3 text-xs font-bold rounded-r-lg transition">Join</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container mx-auto px-4 pt-6 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-2">
+            <p>&copy; 2026 KickOff Jerseys Store. Hak Cipta Dilindungi.</p>
+            <p class="flex items-center gap-1">Dibuat dengan <i class="fa-solid fa-heart text-brand-red"></i> untuk Pecinta Sepak Bola Indonesia</p>
+        </div>
+    </footer>
+
+
+    <!-- Slide-over Shopping Cart Drawer -->
+    <div id="cartDrawerBackdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+    
+    <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-[#161b22] border-l border-gray-800 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Cart Header -->
+        <div class="p-4 border-b border-gray-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-bag-shopping text-brand-red text-xl"></i>
+                <h3 class="text-lg font-bold text-white">Keranjang Belanja</h3>
+                <span id="cartDrawerCount" class="text-xs bg-gray-800 text-gray-300 px-2 py-0.5 rounded-full">0 Barang</span>
+            </div>
+            <button onclick="toggleCartDrawer(false)" class="text-gray-400 hover:text-white p-1">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-4 space-y-4">
+            <!-- Rendered by Javascript -->
+        </div>
+
+        <!-- Cart Summary Footer -->
+        <div class="p-4 border-t border-gray-800 bg-[#0d1117] space-y-3">
+            
+            <!-- Promo Code Input -->
+            <div class="flex gap-2">
+                <input type="text" id="promoInput" placeholder="Kode Promo (misal: KICKOFF10)" class="uppercase bg-[#161b22] border border-gray-700 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none flex-1">
+                <button onclick="applyPromoCode()" class="bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs px-3 font-semibold rounded-lg border border-gray-700">Apply</button>
+            </div>
+
+            <!-- Discount Line -->
+            <div id="discountRow" class="hidden flex justify-between text-xs text-emerald-400">
+                <span>Diskon Promo:</span>
+                <span id="discountAmount">- Rp 0</span>
+            </div>
+
+            <!-- Subtotal -->
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-400">Subtotal</span>
+                <span id="cartSubtotal" class="font-bold text-white">Rp 0</span>
+            </div>
+
+            <div class="text-[11px] text-gray-500 flex justify-between">
+                <span>Estimasi Pengiriman:</span>
+                <span class="text-gray-400">Dihitung saat checkout</span>
+            </div>
+
+            <!-- Total Price -->
+            <div class="flex justify-between text-base font-extrabold border-t border-gray-800 pt-2 text-white">
+                <span>Total Pembayaran</span>
+                <span id="cartTotal" class="text-brand-gold">Rp 0</span>
+            </div>
+
+            <!-- Checkout Button -->
+            <button onclick="openCheckoutModal()" class="w-full bg-brand-red hover:bg-red-600 text-white font-bold py-3 rounded-xl shadow-lg shadow-red-900/40 transition flex items-center justify-center gap-2">
+                <span>Lanjut ke Pembayaran</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-[#161b22] border border-gray-700 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="quickViewContent">
+                <!-- Javascript will populate this modal -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Size Guide Modal -->
+    <div id="sizeGuideModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-[#161b22] border border-gray-700 rounded-2xl max-w-lg w-full p-6 relative">
+            <button onclick="closeSizeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-ruler-horizontal text-brand-gold"></i>
+                Panduan Ukuran Jersey (Size Chart)
+            </h3>
+            <p class="text-xs text-gray-400 mb-4">Ukuran standar toleransi ±1-2 cm. Bahan melar menyesuaikan bentuk tubuh.</p>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs text-left text-gray-300">
+                    <thead class="bg-gray-800 text-gray-200 uppercase font-mono">
+                        <tr>
+                            <th class="px-3 py-2">Size</th>
+                            <th class="px-3 py-2">Lebar Dada (cm)</th>
+                            <th class="px-3 py-2">Panjang Baju (cm)</th>
+                            <th class="px-3 py-2">Rekomendasi BB (kg)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-800">
+                        <tr><td class="px-3 py-2 font-bold text-white">S</td><td class="px-3 py-2">48 - 50</td><td class="px-3 py-2">68 - 70</td><td class="px-3 py-2">50 - 60 kg</td></tr>
+                        <tr><td class="px-3 py-2 font-bold text-white">M</td><td class="px-3 py-2">51 - 53</td><td class="px-3 py-2">71 - 73</td><td class="px-3 py-2">61 - 72 kg</td></tr>
+                        <tr><td class="px-3 py-2 font-bold text-white">L</td><td class="px-3 py-2">54 - 56</td><td class="px-3 py-2">74 - 76</td><td class="px-3 py-2">73 - 83 kg</td></tr>
+                        <tr><td class="px-3 py-2 font-bold text-white">XL</td><td class="px-3 py-2">57 - 59</td><td class="px-3 py-2">77 - 79</td><td class="px-3 py-2">84 - 93 kg</td></tr>
+                        <tr><td class="px-3 py-2 font-bold text-white">XXL</td><td class="px-3 py-2">60 - 62</td><td class="px-3 py-2">80 - 82</td><td class="px-3 py-2">94+ kg</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-5 p-3 bg-gray-800/50 rounded-xl text-xs text-gray-400 flex items-start gap-2">
+                <i class="fa-solid fa-circle-info text-brand-gold mt-0.5"></i>
+                <span>Saran: Jika Anda menyukai gaya fit santai/longgar, disarankan memilih 1 size di atas ukuran biasa.</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-[#161b22] border border-gray-700 rounded-2xl max-w-xl w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-xl font-bold text-white mb-1">Form Pembayaran Simulasi</h3>
+            <p class="text-xs text-gray-400 mb-5">Lengkapi data pengiriman untuk menyelesaikan pesanan Anda.</p>
+
+            <form onsubmit="handleFinalCheckout(event)" class="space-y-4 text-xs">
+                <div>
+                    <label class="block font-semibold text-gray-300 mb-1">Nama Lengkap</label>
+                    <input type="text" required placeholder="Budi Santoso" class="w-full bg-[#0d1117] border border-gray-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-brand-red">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-gray-300 mb-1">Nomor WhatsApp</label>
+                        <input type="tel" required placeholder="08123456789" class="w-full bg-[#0d1117] border border-gray-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-brand-red">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-gray-300 mb-1">Kurir Pengiriman</label>
+                        <select class="w-full bg-[#0d1117] border border-gray-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-brand-red">
+                            <option>JNE Regular (Rp 15.000)</option>
+                            <option>JNT Express (Rp 18.000)</option>
+                            <option>Sicepat Cargo (Rp 12.000)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-gray-300 mb-1">Alamat Lengkap Pengiriman</label>
+                    <textarea rows="2" required placeholder="Jl. Mawar No. 12, Kel. Menteng, Jakarta Pusat..." class="w-full bg-[#0d1117] border border-gray-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-brand-red"></textarea>
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-gray-300 mb-1">Pilih Metode Pembayaran</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <label class="border border-gray-700 p-2.5 rounded-lg flex items-center gap-2 cursor-pointer hover:border-brand-red">
+                            <input type="radio" name="payMethod" checked class="accent-brand-red">
+                            <span>QRIS / All E-Wallet</span>
+                        </label>
+                        <label class="border border-gray-700 p-2.5 rounded-lg flex items-center gap-2 cursor-pointer hover:border-brand-red">
+                            <input type="radio" name="payMethod" class="accent-brand-red">
+                            <span>Transfer Bank BCA</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="pt-3 border-t border-gray-800 flex items-center justify-between">
+                    <div>
+                        <span class="text-gray-400 block">Total Tagihan:</span>
+                        <span id="checkoutModalTotal" class="text-base font-extrabold text-brand-gold">Rp 0</span>
+                    </div>
+                    <button type="submit" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-2.5 rounded-xl shadow-lg transition">
+                        Konfirmasi Order & Bayar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Custom Toast Notifications Container -->
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+
+    <!-- Application Javascript Logic -->
+    <script>
+        // Data Products Mock Database
+        const productsData = [
+            {
+                id: 1,
+                name: "Timnas Indonesia Home 2025/2026",
+                category: "Timnas",
+                league: "Timnas",
+                type: "Home Kit",
+                price: 299000,
+                oldPrice: 450000,
+                rating: 5.0,
+                reviews: 142,
+                image: "https://images.unsplash.com/photo-1518091043644-c1d4457512c6?w=500&auto=format&fit=crop&q=80",
+                badge: "BEST SELLER",
+                description: "Jersey resmi Timnas Indonesia edisi terbaru dengan motif tenun khas Garuda, bahan aeroready ultra-breathable."
+            },
+            {
+                id: 2,
+                name: "Real Madrid Home 2025 Player Ed.",
+                category: "La Liga",
+                league: "La Liga",
+                type: "Home Kit",
+                price: 275000,
+                oldPrice: 380000,
+                rating: 4.9,
+                reviews: 98,
+                image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=500&auto=format&fit=crop&q=80",
+                badge: "NEW",
+                description: "Jersey putih megah Real Madrid edisi Liga Champions dengan detail emas eksklusif."
+            },
+            {
+                id: 3,
+                name: "Arsenal FC Home Kit 2025",
+                category: "EPL",
+                league: "EPL",
+                type: "Home Kit",
+                price: 245000,
+                oldPrice: 320000,
+                rating: 4.8,
+                reviews: 76,
+                image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=500&auto=format&fit=crop&q=80",
+                badge: "HOT",
+                description: "Warna merah meriam khas The Gunners dengan kerah retro modern berbahan adem."
+            },
+            {
+                id: 4,
+                name: "AC Milan Classic Retro 1999 (Maldini)",
+                category: "Retro",
+                league: "Retro",
+                type: "Classic Retro",
+                price: 310000,
+                oldPrice: 420000,
+                rating: 5.0,
+                reviews: 210,
+                image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&auto=format&fit=crop&q=80",
+                badge: "RETRO CLASSIC",
+                description: "Koleksi langka jersey AC Milan era kejayaan Rossoneri dengan bahan kain rajut vintage berkualitas."
+            },
+            {
+                id: 5,
+                name: "FC Barcelona Away Kit Black Ed.",
+                category: "La Liga",
+                league: "La Liga",
+                type: "Away Kit",
+                price: 250000,
+                oldPrice: 350000,
+                rating: 4.7,
+                reviews: 64,
+                image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=500&auto=format&fit=crop&q=80",
+                badge: "POPULER",
+                description: "Desain hitam elegan Blaugrana dengan logo hologram berkilau saat terkena cahaya."
+            },
+            {
+                id: 6,
+                name: "Juventus Turin Home Zebra 2025",
+                category: "Serie A",
+                league: "Serie A",
+                type: "Home Kit",
+                price: 235000,
+                oldPrice: 310000,
+                rating: 4.6,
+                reviews: 51,
+                image: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=500&auto=format&fit=crop&q=80",
+                badge: "SALE",
+                description: "Jersey motif ikonik hitam-putih Juventus dengan logo emas elegan."
+            },
+            {
+                id: 7,
+                name: "Japan National Team Anime Special",
+                category: "Timnas",
+                league: "Timnas",
+                type: "Special Ed.",
+                price: 285000,
+                oldPrice: 390000,
+                rating: 4.9,
+                reviews: 180,
+                image: "https://images.unsplash.com/photo-1518091043644-c1d4457512c6?w=500&auto=format&fit=crop&q=80",
+                badge: "LIMITED",
+                description: "Edisi khusus Samurai Blue bermotif seni grafik Jepang modern."
+            },
+            {
+                id: 8,
+                name: "Manchester United Away Retro 1994",
+                category: "Retro",
+                league: "Retro",
+                type: "Classic Retro",
+                price: 295000,
+                oldPrice: 400000,
+                rating: 4.8,
+                reviews: 115,
+                image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=500&auto=format&fit=crop&q=80",
+                badge: "VINTAGE",
+                description: "Jersey legendaris Setan Merah warna hitam tajam khas era Cantona."
+            }
+        ];
+
+        // State Management
+        let cart = [];
+        let activeCategory = 'all';
+        let discountPercentage = 0;
+        let wishlistCount = 0;
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts(productsData);
+            updateCartUI();
+            updateCustomizer();
+        });
+
+        // Format Rupiah Currency Helper
+        function formatRupiah(number) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(number);
+        }
+
+        // Render Product Catalog Grid
+        function renderProducts(list) {
+            const grid = document.getElementById('productGrid');
+            const emptyState = document.getElementById('emptyState');
+            const countBadge = document.getElementById('productCountBadge');
+
+            grid.innerHTML = '';
+            countBadge.innerText = `${list.length} Jersey`;
+
+            if (list.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            list.forEach(product => {
+                const card = document.createElement('div');
+                card.className = "bg-[#161b22] border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-600 transition-all duration-300 flex flex-col group shadow-lg";
+                
+                card.innerHTML = `
+                    <div class="relative overflow-hidden bg-gray-900 aspect-square">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-108 transition duration-500">
+                        
+                        <span class="absolute top-2.5 left-2.5 bg-brand-red text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider shadow">
+                            ${product.badge}
+                        </span>
+
+                        <button onclick="toggleWishlist(this)" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-black/50 text-white hover:text-brand-red flex items-center justify-center backdrop-blur transition">
+                            <i class="fa-regular fa-heart text-sm"></i>
+                        </button>
+
+                        <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition flex justify-center gap-2">
+                            <button onclick="openQuickView(${product.id})" class="bg-gray-800/90 hover:bg-white hover:text-black text-white text-xs px-3 py-1.5 rounded-lg transition font-medium flex items-center gap-1">
+                                <i class="fa-solid fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <div class="flex justify-between items-center text-[11px] text-gray-400 mb-1">
+                                <span>${product.league}</span>
+                                <span class="text-brand-gold flex items-center gap-1"><i class="fa-solid fa-star text-[10px]"></i> ${product.rating} (${product.reviews})</span>
+                            </div>
+                            <h3 class="font-bold text-white text-sm line-clamp-1 group-hover:text-brand-red transition">${product.name}</h3>
+                        </div>
+
+                        <div class="flex items-center justify-between border-t border-gray-800/80 pt-2">
+                            <div>
+                                <span class="text-[10px] text-gray-400 line-through block">${formatRupiah(product.oldPrice)}</span>
+                                <span class="text-base font-extrabold text-white">${formatRupiah(product.price)}</span>
+                            </div>
+                            <button onclick="addToCartDirect(${product.id})" class="bg-brand-red hover:bg-red-600 text-white w-9 h-9 rounded-xl flex items-center justify-center shadow-md transition active:scale-90" title="Tambah ke Keranjang">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filtering and Sorting
+        function filterCategory(cat) {
+            activeCategory = cat;
+            
+            // Update active tab styling
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-brand-red', 'text-white');
+                btn.classList.add('text-gray-400');
+            });
+            event.currentTarget.classList.add('active', 'bg-brand-red', 'text-white');
+            event.currentTarget.classList.remove('text-gray-400');
+
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const leagueVal = document.getElementById('leagueFilter').value;
+            const sortVal = document.getElementById('sortBy').value;
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+
+            let filtered = productsData.filter(item => {
+                const matchCategory = (activeCategory === 'all') || (item.league === activeCategory);
+                const matchLeagueSelect = (leagueVal === 'all') || (item.league === leagueVal);
+                const matchSearch = item.name.toLowerCase().includes(searchVal) || item.league.toLowerCase().includes(searchVal);
+
+                return matchCategory && matchLeagueSelect && matchSearch;
+            });
+
+            // Sorting logic
+            if (sortVal === 'price-low') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortVal === 'price-high') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (sortVal === 'rating') {
+                filtered.sort((a, b) => b.rating - a.rating);
+            }
+
+            renderProducts(filtered);
+        }
+
+        function handleSearch() {
+            applyFilters();
+        }
+
+        function handleSearchMobile() {
+            const val = document.getElementById('mobileSearchInput').value;
+            document.getElementById('searchInput').value = val;
+            applyFilters();
+        }
+
+        function toggleMobileSearch() {
+            const el = document.getElementById('mobileSearch');
+            el.classList.toggle('hidden');
+        }
+
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('mobileSearchInput').value = '';
+            document.getElementById('leagueFilter').value = 'all';
+            document.getElementById('sortBy').value = 'default';
+            filterCategory('all');
+        }
+
+        // Live Customizer Sablon Logic
+        function updateCustomizer() {
+            const name = document.getElementById('inputName').value.trim() || 'GARUDA';
+            const number = document.getElementById('inputNumber').value || '7';
+            const fontClass = document.getElementById('fontStyleSelect').value;
+            const fontColorClass = document.querySelector('input[name="fontColor"]:checked').value;
+            const patchVal = document.getElementById('patchSelect').value;
+
+            // Update text
+            const previewName = document.getElementById('previewName');
+            const previewNumber = document.getElementById('previewNumber');
+
+            previewName.innerText = name.toUpperCase();
+            previewNumber.innerText = number;
+
+            // Update Classes Font Style & Color
+            previewName.className = `${fontClass} ${fontColorClass} text-3xl font-extrabold tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] break-all max-w-full`;
+            previewNumber.className = `${fontClass} ${fontColorClass} text-8xl font-extrabold tracking-tighter leading-none my-1 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]`;
+
+            // Update Patch icon & price calculation
+            const patchDisplay = document.getElementById('patchDisplay');
+            let extraPrice = 45000; // Base Sablon Name + Number
+
+            if (patchVal === 'ucl') {
+                patchDisplay.innerHTML = '<i class="fa-solid fa-star text-yellow-300"></i>';
+                extraPrice += 25000;
+            } else if (patchVal === 'epl') {
+                patchDisplay.innerHTML = '<i class="fa-solid fa-crown text-purple-400"></i>';
+                extraPrice += 25000;
+            } else if (patchVal === 'wc') {
+                patchDisplay.innerHTML = '<i class="fa-solid fa-trophy text-yellow-400"></i>';
+                extraPrice += 25000;
+            } else {
+                patchDisplay.innerHTML = '<i class="fa-solid fa-shield-halved"></i>';
+            }
+
+            document.getElementById('customSablonPrice').innerText = formatRupiah(extraPrice);
+        }
+
+        function changeJerseyBg(color) {
+            const bg = document.getElementById('jerseyBackBg');
+            const colorMap = {
+                'red': 'bg-gradient-to-b from-red-700 via-red-800 to-red-950',
+                'blue': 'bg-gradient-to-b from-blue-700 via-blue-800 to-blue-950',
+                'black': 'bg-gradient-to-b from-gray-800 via-gray-900 to-black',
+                'white': 'bg-gradient-to-b from-gray-100 via-gray-200 to-gray-400',
+                'yellow': 'bg-gradient-to-b from-amber-400 via-yellow-500 to-yellow-600'
+            };
+            bg.className = `absolute inset-0 transition-colors duration-500 ${colorMap[color] || colorMap['red']}`;
+        }
+
+        function scrollToCustomizer() {
+            document.getElementById('customizer').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function addCustomJerseyToCart() {
+            const name = document.getElementById('inputName').value.trim() || 'GARUDA';
+            const number = document.getElementById('inputNumber').value || '7';
+            const patch = document.getElementById('patchSelect').selectedOptions[0].text;
+            
+            const customItem = {
+                id: Date.now(), // Unique Timestamp ID
+                name: `Custom Jersey Sablon (${name.toUpperCase()} #${number})`,
+                size: 'L',
+                price: 299000 + 45000 + (document.getElementById('patchSelect').value !== 'none' ? 25000 : 0),
+                image: "https://images.unsplash.com/photo-1518091043644-c1d4457512c6?w=500&auto=format&fit=crop&q=80",
+                customDetails: `Sablon: ${name.toUpperCase()} #${number} | Patch: ${patch}`,
+                qty: 1
+            };
+
+            cart.push(customItem);
+            updateCartUI();
+            toggleCartDrawer(true);
+            showToast("Jersey Custom berhasil ditambahkan!");
+        }
+
+        // Cart Actions
+        function addToCartDirect(productId) {
+            const product = productsData.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingIndex = cart.findIndex(item => item.id === productId && !item.customDetails);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    size: 'M',
+                    price: product.price,
+                    image: product.image,
+                    customDetails: null,
+                    qty: 1
+                });
+            }
+
+            updateCartUI();
+            showToast(`"${product.name}" masuk keranjang!`);
+        }
+
+        function quickAddHeroProduct() {
+            addToCartDirect(1);
+            toggleCartDrawer(true);
+        }
+
+        function updateCartQty(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function updateCartSize(index, newSize) {
+            cart[index].size = newSize;
+            updateCartUI();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+            showToast("Item dihapus dari keranjang.");
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const cartCountBadge = document.getElementById('cartCountBadge');
+            const cartDrawerCount = document.getElementById('cartDrawerCount');
+            const subtotalEl = document.getElementById('cartSubtotal');
+            const totalEl = document.getElementById('cartTotal');
+
+            // Item count total
+            const totalItemsCount = cart.reduce((acc, item) => acc + item.qty, 0);
+            cartCountBadge.innerText = totalItemsCount;
+            cartDrawerCount.innerText = `${totalItemsCount} Barang`;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-400 space-y-3">
+                        <i class="fa-solid fa-basket-shopping text-4xl text-gray-600"></i>
+                        <p class="text-sm">Keranjang Anda masih kosong.</p>
+                        <button onclick="toggleCartDrawer(false)" class="text-xs text-brand-red underline font-semibold">Mulai Belanja Sekarang</button>
+                    </div>
+                `;
+                subtotalEl.innerText = formatRupiah(0);
+                totalEl.innerText = formatRupiah(0);
+                return;
+            }
+
+            container.innerHTML = '';
+            let rawSubtotal = 0;
+
+            cart.forEach((item, index) => {
+                rawSubtotal += item.price * item.qty;
+
+                const itemCard = document.createElement('div');
+                itemCard.className = "flex gap-3 bg-[#0d1117] p-3 rounded-xl border border-gray-800 relative group";
+                
+                itemCard.innerHTML = `
+                    <img src="${item.image}" class="w-16 h-16 object-cover rounded-lg border border-gray-700">
+                    
+                    <div class="flex-1 space-y-1">
+                        <h4 class="text-xs font-bold text-white line-clamp-1">${item.name}</h4>
+                        ${item.customDetails ? `<p class="text-[10px] text-brand-gold">${item.customDetails}</p>` : ''}
+                        
+                        <div class="flex items-center gap-2 pt-1">
+                            <!-- Size Selector -->
+                            <select onchange="updateCartSize(${index}, this.value)" class="bg-[#161b22] border border-gray-700 text-[10px] text-gray-200 rounded px-1.5 py-0.5">
+                                <option value="S" ${item.size === 'S' ? 'selected' : ''}>Size S</option>
+                                <option value="M" ${item.size === 'M' ? 'selected' : ''}>Size M</option>
+                                <option value="L" ${item.size === 'L' ? 'selected' : ''}>Size L</option>
+                                <option value="XL" ${item.size === 'XL' ? 'selected' : ''}>Size XL</option>
+                                <option value="XXL" ${item.size === 'XXL' ? 'selected' : ''}>Size XXL</option>
+                            </select>
+
+                            <!-- Qty Adjuster -->
+                            <div class="flex items-center border border-gray-700 rounded bg-[#161b22]">
+                                <button onclick="updateCartQty(${index}, -1)" class="px-2 py-0.5 text-xs text-gray-400 hover:text-white">-</button>
+                                <span class="px-2 text-xs font-bold text-white">${item.qty}</span>
+                                <button onclick="updateCartQty(${index}, 1)" class="px-2 py-0.5 text-xs text-gray-400 hover:text-white">+</button>
+                            </div>
+                        </div>
+
+                        <div class="text-xs font-extrabold text-brand-red pt-1">
+                            ${formatRupiah(item.price * item.qty)}
+                        </div>
+                    </div>
+
+                    <button onclick="removeFromCart(${index})" class="text-gray-500 hover:text-red-400 text-xs p-1">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                `;
+                container.appendChild(itemCard);
+            });
+
+            const discountVal = (rawSubtotal * discountPercentage) / 100;
+            const finalTotal = Math.max(0, rawSubtotal - discountVal);
+
+            subtotalEl.innerText = formatRupiah(rawSubtotal);
+            totalEl.innerText = formatRupiah(finalTotal);
+            document.getElementById('checkoutModalTotal').innerText = formatRupiah(finalTotal);
+        }
+
+        function toggleCartDrawer(open) {
+            const drawer = document.getElementById('cartDrawer');
+            const backdrop = document.getElementById('cartDrawerBackdrop');
+
+            if (open) {
+                drawer.classList.remove('translate-x-full');
+                backdrop.classList.remove('hidden');
+            } else {
+                drawer.classList.add('translate-x-full');
+                backdrop.classList.add('hidden');
+            }
+        }
+
+        function applyPromoCode() {
+            const code = document.getElementById('promoInput').value.trim().toUpperCase();
+            const discountRow = document.getElementById('discountRow');
+            const discountAmount = document.getElementById('discountAmount');
+
+            if (code === 'KICKOFF10') {
+                discountPercentage = 10;
+                discountRow.classList.remove('hidden');
+                discountAmount.innerText = "-10% OFF";
+                showToast("Kode promo 'KICKOFF10' berhasil dipasang!");
+            } else if (code === 'TIMNAS2026') {
+                discountPercentage = 15;
+                discountRow.classList.remove('hidden');
+                discountAmount.innerText = "-15% OFF";
+                showToast("Kode promo diskon 15% aktif!");
+            } else {
+                showToast("Kode promo tidak valid.", "error");
+            }
+
+            updateCartUI();
+        }
+
+        // Quick View Modal
+        function openQuickView(id) {
+            const product = productsData.find(p => p.id === id);
+            if (!product) return;
+
+            const content = document.getElementById('quickViewContent');
+            content.innerHTML = `
+                <div class="grid md:grid-cols-2 gap-6 items-center">
+                    <img src="${product.image}" class="w-full h-72 object-cover rounded-xl border border-gray-700 shadow-md">
+                    
+                    <div class="space-y-4">
+                        <span class="text-xs text-brand-red font-bold uppercase tracking-wider">${product.league} • ${product.type}</span>
+                        <h3 class="text-2xl font-bold text-white">${product.name}</h3>
+                        
+                        <div class="flex items-center gap-2">
+                            <div class="text-brand-gold text-sm">
+                                <i class="fa-solid fa-star"></i> ${product.rating}
+                            </div>
+                            <span class="text-xs text-gray-400">(${product.reviews} ulasan pembeli)</span>
+                        </div>
+
+                        <p class="text-xs text-gray-300 leading-relaxed">${product.description}</p>
+
+                        <div class="text-xl font-extrabold text-white">
+                            ${formatRupiah(product.price)}
+                            <span class="text-xs text-gray-400 line-through font-normal ml-2">${formatRupiah(product.oldPrice)}</span>
+                        </div>
+
+                        <div class="pt-2 flex gap-3">
+                            <button onclick="addToCartDirect(${product.id}); closeQuickView(); toggleCartDrawer(true);" class="flex-1 bg-brand-red hover:bg-red-600 text-white font-bold py-2.5 rounded-xl text-xs transition">
+                                + Tambah ke Keranjang
+                            </button>
+                            <button onclick="openSizeModal()" class="px-3 border border-gray-700 text-gray-300 hover:text-white rounded-xl text-xs">
+                                Size Chart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('quickViewModal').classList.remove('hidden');
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.add('hidden');
+        }
+
+        // Modals Toggle
+        function openSizeModal() {
+            document.getElementById('sizeGuideModal').classList.remove('hidden');
+        }
+        function closeSizeModal() {
+            document.getElementById('sizeGuideModal').classList.add('hidden');
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                showToast("Keranjang Anda masih kosong!", "error");
+                return;
+            }
+            toggleCartDrawer(false);
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+
+        function handleFinalCheckout(e) {
+            e.preventDefault();
+            closeCheckoutModal();
+            cart = [];
+            updateCartUI();
+            
+            showToast("🎉 Pesanan berhasil dibuat! Tim kami akan menghubungi WA Anda.", "success");
+        }
+
+        // Wishlist Counter
+        function toggleWishlist(btn) {
+            const icon = btn.querySelector('i');
+            if (icon.classList.contains('fa-regular')) {
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid', 'text-brand-red');
+                wishlistCount++;
+                showToast("Jersey disimpan ke Wishlist!");
+            } else {
+                icon.classList.remove('fa-solid', 'text-brand-red');
+                icon.classList.add('fa-regular');
+                wishlistCount = Math.max(0, wishlistCount - 1);
+            }
+            document.getElementById('wishlistBadge').innerText = wishlistCount;
+        }
+
+        function openWishlistToast() {
+            showToast(`Item favorit Anda saat ini: ${wishlistCount} jersey.`);
+        }
+
+        function subscribeNewsletter() {
+            showToast("Terima kasih telah berlangganan newsletter KickOff!");
+        }
+
+        // Dynamic Toast Notification Component
+        function showToast(message, type = "info") {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            
+            const bgColor = type === 'error' ? 'bg-red-600' : 'bg-gray-800 border border-brand-red';
+
+            toast.className = `${bgColor} text-white text-xs font-semibold px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 transform translate-y-2 opacity-0 transition-all duration-300 pointer-events-auto`;
+            toast.innerHTML = `
+                <i class="fa-solid fa-circle-check text-brand-gold"></i>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
